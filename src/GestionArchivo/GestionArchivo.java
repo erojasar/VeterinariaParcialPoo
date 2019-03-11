@@ -27,17 +27,33 @@ public class GestionArchivo {
         this.ruta = "pets.txt";
     }
     
-    public boolean guardar (ArrayList<> bd) throws FileNotFoundException, IOException{
+    public boolean guardar (ArrayList<Person> p) throws FileNotFoundException, IOException{
         File archivo = new File(this.ruta);
         if(!archivo.exists())
             archivo.createNewFile();
          
         PrintStream salida = 
                new PrintStream(archivo);
-        for ( value : bd) {
-            salida.print();
-            salida.print(" ");
+        for (Person persona : p){
+            for(Pet pet : persona.getPet()){
+                if(pet.getClass().getCanonicalName().equals("veterinariapoo.Dog")){
+                    salida.print("Dog " + pet.getId() + " " + pet.getName() + " " 
+                            + pet.getHairColor() + " " + ((Dog)pet).getBreed());
+                    salida.print(persona.getName() + " " + persona.getId());
+                }else if(pet.getClass().getCanonicalName().equals("veterinariapoo.Cat")){
+                    salida.print("Cat " + pet.getId() + " " + pet.getName() + " " 
+                            + pet.getHairColor() + " " + ((Cat)pet).isIsHunter());
+                    salida.print(persona.getName() + " " + persona.getId());
+                }else if(pet.getClass().getCanonicalName().equals("veterinariapoo.Hamster")){
+                    salida.print("Hamster " + pet.getId() + " " + pet.getName() + " " 
+                            + pet.getHairColor() + " " + ((Hamster)pet).getWeight());
+                    salida.print(persona.getName() + " " + persona.getId());
+                }
+                
+            }
         }
+            
+        
         salida.flush();
         salida.close();
         return true;

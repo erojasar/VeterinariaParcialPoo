@@ -7,6 +7,7 @@ package businessLogic;
 
 import GestionArchivo.GestionArchivo;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -77,6 +78,13 @@ public class Starter {
                 break;
             case 3:
                 veterinaria.ShowPets();
+        {
+            try {
+                gestionArchivo.guardar(persons);
+            } catch (IOException ex) {
+                Logger.getLogger(Starter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 
                 break;
         }

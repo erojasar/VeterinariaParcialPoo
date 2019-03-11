@@ -21,5 +21,9 @@ public class Hamster extends Pet{
     public String sound() {
         return "";
     }
+
+    public double getWeight() {
+        return weight;
+    }
     
 }

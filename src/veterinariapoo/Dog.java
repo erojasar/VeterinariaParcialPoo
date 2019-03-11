@@ -21,4 +21,9 @@ public class Dog extends Pet{
     public String sound() {
         return "guau";
     }
+
+    public String getBreed() {
+        return breed;
+    }
+    
 }

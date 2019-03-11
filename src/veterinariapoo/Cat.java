@@ -21,5 +21,9 @@ public class Cat extends Pet{
     public String sound() {
         return "miau";
     }
+
+    public boolean isIsHunter() {
+        return isHunter;
+    }
     
 }
