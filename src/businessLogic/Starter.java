@@ -85,7 +85,7 @@ public class Starter {
                 Logger.getLogger(Starter.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-                
+                System.exit(0);
                 break;
         }
     }
