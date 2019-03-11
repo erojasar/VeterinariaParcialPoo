@@ -27,7 +27,7 @@ public class Starter {
         try {
             persons = gestionArchivo.cargar();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Starter.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No se encontro el archivo...");
         }
         ArrayList<Pet> pets = new ArrayList<>();
         for(Person p : persons){
@@ -39,8 +39,7 @@ public class Starter {
         veterinaria.setPets(pets);
         Scanner lectura = new Scanner(System.in);
         
-        Pet p = new Dog("", "", "", "");
-        System.out.println(p.getClass().getCanonicalName().toString());
+        
         System.out.println("1. Remover una mascota dando su id. "
                 + "\n2. Listar las mascotas segun el tipo (Dog, Cat o Hamster)"
                 + "\n3. listar todas las mascotas y cerrar");
